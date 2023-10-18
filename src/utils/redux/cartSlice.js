@@ -5,10 +5,19 @@ const cartSlice = createSlice({
   initialState: { items: [] },
   reducers: {
     addItems(state, action) {
-      state.items.push(action.payload);
+      const existingSubMenu = state.items.find(
+        (item) => item.id === action.payload.id,
+      );
+      state.items.push({
+        ...action.payload,
+        quantity: existingSubMenu
+          ? existingSubMenu.quantity + 1
+          : existingSubMenu.quantity,
+      });
     },
-    removeItems(state) {
-      state.items.pop();
+    removeItems(state, action) {
+      console.log(state.items, action);
+      state.items.splice(action.payload, 1);
     },
     clearCart(state) {
       state.items.length = 0;
