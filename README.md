@@ -2,6 +2,6 @@
 
 # Note:
 
-# Since this application's API is from different origin, it blocks the API calls by 'CORS' when you try to access the web. To view Live application, please install 'Allow CORS' plugin to your browser.
+# This app's API comes from a different origin, and the browser stops it from making certain calls ('CORS') when you're trying to go online. To see the live application, install the 'Allow CORS' plugin on your browser.
 
-# Click on the [link](https://hey-foodie.netlify.app/) {:target="\_blank" rel="noopener"} to view live.
+# Click on the [link](https://hey-foodie.netlify.app/) to view live.
