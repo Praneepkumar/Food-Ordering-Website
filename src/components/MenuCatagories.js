@@ -20,6 +20,7 @@ const MenuCatagories = ({ menuData, showSubMenu, setMenuIndex }) => {
           <i className='ph ph-caret-up text-xl'></i>
         )}
       </div>
+
       {showSubMenu && (
         <div id='menu-content'>
           <div className='[&>*:not(:last-child)]:border-b-[1px] list-none'>

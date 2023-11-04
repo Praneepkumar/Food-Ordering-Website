@@ -1,24 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
-import { addItems, removeItems } from "../utils/redux/cartSlice";
-
-const SubMenu = ({ menu, i }) => {
-  console.log(menu);
+import { useDispatch } from "react-redux";
+import { addItems } from "../utils/redux/cartSlice";
+const SubMenu = ({ menu }) => {
   /*Variables*/
   const { name, description, imageId, price, ribbon, defaultPrice } = menu;
   const showRibbon = Object.keys(ribbon).length === 0 ? false : true;
-  const dispatchAction = useDispatch();
-  const items = useSelector((state) => state.cart.items) || [];
+  const dispatch = useDispatch();
 
-  /*functions*/
-  const handleAddItems = (menu) => {
-    dispatchAction(addItems(menu));
+  /*callback functions*/
+  const handleAddItems = () => {
+    dispatch(addItems(menu));
   };
 
-  const handleInput = (e) => {
-    const input = e.target.value;
-    if (typeof input !== "number") return;
-    setQuantity(input);
-  };
   return (
     <div className='my-3 py-5 flex justify-between'>
       <div className='w-10/12 flex flex-col gap-3'>
@@ -54,44 +46,12 @@ const SubMenu = ({ menu, i }) => {
           ) : (
             ""
           )}
-          {items.length === 0 ? (
-            <button
-              onClick={() => handleAddItems(menu)}
-              type='button'
-              className='px-2 py-1 w-[120px] bg-slate-50 hover:bg-slate-100 rounded-md'>
-              &#43; Add Item
-            </button>
-          ) : (
-            <div className='px-2 py-1 w-[120px] rounded-md bg-white border-[1px] border-solid '>
-              <div className='flex gap-1'>
-                <button>
-                  {quantity === 1 ? (
-                    <i
-                      className='ph ph-trash'
-                      onClick={() => {
-                        console.log(i);
-                        dispatchAction(removeItems(i));
-                      }}></i>
-                  ) : (
-                    <i
-                      className='ph ph-minus'
-                      onClick={() => setQuantity(quantity - 1)}></i>
-                  )}
-                </button>
-                <input
-                  value={quantity}
-                  type='text'
-                  className='block w-[60%] focus:outline-slate-400 text-center'
-                  onChange={handleInput}
-                />
-                <button>
-                  <i
-                    className='ph ph-plus'
-                    onClick={() => setQuantity(quantity + 1)}></i>
-                </button>
-              </div>
-            </div>
-          )}
+          <button
+            onClick={handleAddItems}
+            type='button'
+            className='px-2 py-1 w-[120px] bg-slate-50 hover:bg-slate-100 rounded-md'>
+            &#43; Add Item
+          </button>
         </div>
       </div>
     </div>

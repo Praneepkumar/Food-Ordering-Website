@@ -1,9 +1,9 @@
 import Header from "./Header";
 import DisplayUserContext from "../utils/DisplayUserContext";
-import appStore from "../utils/redux/appStore";
+import { Provider } from "react-redux";
 import { Outlet } from "react-router-dom";
 import { useState } from "react";
-import { Provider } from "react-redux";
+import appStore from "../utils/redux/appStore";
 
 const App = () => {
   const [userName, setUserName] = useState("");
