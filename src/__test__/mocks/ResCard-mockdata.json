@@ -1,0 +1,92 @@
+{
+  "id": "555460",
+  "name": "Mujtaba Grill",
+  "cloudinaryImageId": "94654fdf308764cd0faf83dba35bcdc3",
+  "locality": "Kharkhana & Trimulgherry",
+  "areaName": "Bowenpally",
+  "costForTwo": "₹250 for two",
+  "cuisines": ["North Indian", "Punjabi", "Home Food"],
+  "avgRating": 4.5,
+  "feeDetails": {
+    "restaurantId": "555460",
+    "fees": [
+      {
+        "name": "BASE_DISTANCE",
+        "fee": 3000
+      },
+      {
+        "name": "BASE_TIME"
+      },
+      {
+        "name": "ANCILLARY_SURGE_FEE"
+      }
+    ],
+    "totalFee": 3000
+  },
+  "parentId": "22452",
+  "avgRatingString": "4.5",
+  "totalRatingsString": "100+",
+  "sla": {
+    "deliveryTime": 16,
+    "lastMileTravel": 1.5,
+    "serviceability": "SERVICEABLE",
+    "slaString": "11-21 mins",
+    "lastMileTravelString": "1.5 km",
+    "iconType": "ICON_TYPE_EMPTY"
+  },
+  "availability": {
+    "nextCloseTime": "2023-11-06 00:30:00",
+    "opened": true
+  },
+  "badges": {
+    "textExtendedBadges": [
+      {
+        "iconId": "guiltfree/GF_Logo_android_3x",
+        "shortDescription": "options available",
+        "fontColor": "#7E808C"
+      }
+    ]
+  },
+  "isOpen": true,
+  "type": "F",
+  "badgesV2": {
+    "entityBadges": {
+      "imageBased": {},
+      "textBased": {},
+      "textExtendedBadges": {
+        "badgeObject": [
+          {
+            "attributes": {
+              "description": "",
+              "fontColor": "#7E808C",
+              "iconId": "guiltfree/GF_Logo_android_3x",
+              "shortDescription": "options available"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "aggregatedDiscountInfoV3": {
+    "header": "₹150 OFF",
+    "subHeader": "ABOVE ₹349",
+    "discountTag": "FLAT DEAL"
+  },
+  "orderabilityCommunication": {
+    "title": {},
+    "subTitle": {},
+    "message": {},
+    "customIcon": {}
+  },
+  "differentiatedUi": {
+    "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+    "differentiatedUiMediaDetails": {
+      "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+      "lottie": {},
+      "video": {}
+    }
+  },
+  "reviewsSummary": {},
+  "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+  "restaurantOfferPresentationInfo": {}
+}

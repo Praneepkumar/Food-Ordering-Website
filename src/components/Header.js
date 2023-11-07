@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 const Header = () => {
   const { user, setUserName } = useContext(DisplayUserContext);
   const cartItems = useSelector((store) => store.cart.items);
-  console.log(cartItems);
+
   return (
     <header id='header' className='shadow-md bg-white'>
       <div className='container mx-auto px-1'>
@@ -29,7 +29,7 @@ const Header = () => {
             <li className='hover:text-red-500 relative'>
               <Link to='/cart'>Cart </Link>
               {cartItems.length !== 0 && (
-                <p className='absolute bg-[#f04141] text-white w-[17px] h-[17px] text-[13px] rounded-[50%] top-[-2px] left-[36px] flex items-center self-center justify-center'>
+                <p className='absolute bg-[#f04141] text-white w-[16px] h-[16px] text-[11px] rounded-[50%] top-[-2px] left-[36px] flex items-center self-center justify-center'>
                   {cartItems.length}
                 </p>
               )}

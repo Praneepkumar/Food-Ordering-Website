@@ -11,8 +11,9 @@ const Search = ({
   return (
     <>
       <div className='flex my-12'>
-        <div className='relative w-5/6'>
+        <div className='relative w-5/6' id='search'>
           <input
+            data-testid='search'
             type='text'
             placeholder='Type menu, restuarants, etc'
             className='w-full px-6 py-4 border-2 border-gray-300 border-radius'
@@ -35,7 +36,7 @@ const Search = ({
           )}
         </div>
         <button
-          type='button'
+          role='button'
           className='w-1/6 bg-slate-900 text-white text-lg'
           onClick={onSearchBtn}>
           Search
