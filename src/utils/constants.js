@@ -1,4 +1,4 @@
-export const FETCH_URL = (lat, lng) =>
+export const FETCH_RESTAURANTS = (lat, lng) =>
   `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${lat}&lng=${lng}&page_type=DESKTOP_WEB_LISTING`;
 
 export const MENU_API = (lat, lng) =>

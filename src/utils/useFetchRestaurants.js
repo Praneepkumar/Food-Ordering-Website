@@ -1,28 +1,22 @@
-import { FETCH_URL } from "./constants";
+import { FETCH_RESTAURANTS } from "./constants";
 import { useState, useEffect } from "react";
 import useFetchLatLng from "./useFetchLatLng";
-const useFetchRestaurants = () => {
-  const [reslist, setResList] = useState([]);
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+const useFetchRestaurants = async () => {
+  try {
+    const [lat, lng] = await useFetchLatLng();
+    const response = await fetch(FETCH_RESTAURANTS(lat, lng));
+    const jsonData = await response.json();
 
-  const fetchData = async () => {
-    try {
-      const [lat, lng] = await useFetchLatLng();
-      const response = await fetch(FETCH_URL(lat, lng));
-      const jsonData = await response.json();
-      if (!jsonData) throw new Error("Couldn't fetch the details");
-      setResList(
-        jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants,
-      );
-    } catch (e) {
-      console.error(e);
+    if (!jsonData) {
+      throw new Error("Couldn't fetch the details");
     }
-  };
-  return reslist;
+
+    return jsonData?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+      ?.restaurants;
+  } catch (e) {
+    console.error(e);
+  }
 };
 
 export default useFetchRestaurants;

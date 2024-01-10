@@ -6,22 +6,31 @@ import DisplayUserContext from "../utils/DisplayUserContext";
 import DisplayRestaurants, {
   DiscountInfoRestaurant,
 } from "./DisplayRestaurants";
+import { addRestaurantList } from "../utils/redux/resListSlice";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const Body = () => {
   const [searchInput, setSearchInput] = useState("");
   const [filteredReslist, setFilteredResList] = useState([]);
-
-  const resList = useFetchRestaurants();
+  const resList = useSelector((store) => store.restaurants);
   const onlineStatus = useOnlineStatus();
   const RestaurantsWithDiscounts = DiscountInfoRestaurant(DisplayRestaurants);
   const { user } = useContext(DisplayUserContext);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (filteredReslist.length === 0 && resList.length > 0)
+    const getResList = async () => {
+      const data = await useFetchRestaurants();
+      console.log(data);
+      dispatch(addRestaurantList(data));
+    };
+    getResList();
+    if (filteredReslist.length === 0) {
       setFilteredResList(resList);
-  }, [filteredReslist.length, resList.length]);
+    }
+  }, [resList]);
 
   const handleFilter = () => {
     setFilteredResList(
